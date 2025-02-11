@@ -26,3 +26,23 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    rta = {}
+    rta2 = []
+
+    with open("files/input/data.csv") as file:
+        for line in file:
+            row = line.split()
+            month = row[2].split("-")[1]
+            rta[month] = rta.get(month, 0) + 1
+
+
+
+    for i in list(rta):
+        rta2.append((i, rta.get(i)))
+    rta2.sort()
+    return rta2
+
+
+
+if __name__ == '__main__':
+    print(pregunta_04())

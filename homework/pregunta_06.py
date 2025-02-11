@@ -26,3 +26,29 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
+    rta = {}
+    rta2 = []
+
+    with open("files/input/data.csv") as file:
+        for line in file:
+            row = line.split()[-1].split(",")
+            
+            for i in row:
+                kv = i.split(":")
+                letter = kv[0]
+                if letter not in rta:
+                    rta[letter] = []
+                rta[letter] = rta.get(letter) + [int(kv[1])]
+            
+
+
+
+    for i in list(rta):
+        rta2.append((i, min(rta.get(i)), max(rta.get(i))))
+    rta2.sort()
+    return rta2
+
+
+
+if __name__ == '__main__':
+    print(pregunta_06())

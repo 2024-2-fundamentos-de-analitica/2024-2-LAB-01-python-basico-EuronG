@@ -16,3 +16,20 @@ def pregunta_11():
 
 
     """
+    rta = {}
+
+    with open("files/input/data.csv") as file:
+        for line in file:
+            row = line.split()
+            for letter in row[3].split(","):
+                rta[letter] = rta.get(letter, 0) + int(row[1])
+
+
+
+
+    return dict(sorted(rta.items()))
+
+
+
+if __name__ == '__main__':
+    print(pregunta_11())

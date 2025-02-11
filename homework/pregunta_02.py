@@ -15,3 +15,22 @@ def pregunta_02():
     [('A', 8), ('B', 7), ('C', 5), ('D', 6), ('E', 14)]
 
     """
+    rta = {}
+    rta2 = []
+
+    with open("files/input/data.csv") as file:
+        for line in file:
+            letter = line.split()[0]
+            rta[letter] = rta.get(letter, 0) + 1
+
+
+
+    for i in list(rta):
+        rta2.append((i, rta.get(i)))
+    rta2.sort()
+    return rta2
+
+
+
+if __name__ == '__main__':
+    print(pregunta_02())

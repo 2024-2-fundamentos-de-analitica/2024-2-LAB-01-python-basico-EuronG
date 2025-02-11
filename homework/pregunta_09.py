@@ -24,3 +24,21 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+    rta = {}
+
+    with open("files/input/data.csv") as file:
+        for line in file:
+            row = line.split()[-1].split(",")
+            
+            for i in row:
+                kv = i.split(":")
+                letter = kv[0]
+                rta[letter] = rta.get(letter, 0) + 1
+            
+
+    return rta
+
+
+
+if __name__ == '__main__':
+    print(pregunta_09())

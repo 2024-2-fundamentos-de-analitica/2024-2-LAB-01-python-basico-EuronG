@@ -20,3 +20,19 @@ def pregunta_10():
 
 
     """
+    rta = []
+
+    with open("files/input/data.csv") as file:
+        for line in file:
+            row = line.split()
+            rta.append((row[0], len(row[3].split(",")), len(row[4].split(","))))
+
+
+
+
+    return rta
+
+
+
+if __name__ == '__main__':
+    print(pregunta_10())

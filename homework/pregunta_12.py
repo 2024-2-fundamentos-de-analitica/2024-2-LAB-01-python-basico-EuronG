@@ -15,3 +15,21 @@ def pregunta_12():
     {'A': 177, 'B': 187, 'C': 114, 'D': 136, 'E': 324}
 
     """
+    rta = {}
+
+    with open("files/input/data.csv") as file:
+        for line in file:
+            row = line.split()
+            for value in row[4].split(","):
+                value = int(value.split(":")[-1])
+                rta[row[0]] = rta.get(row[0], 0) + value
+
+
+
+
+    return dict(sorted(rta.items()))
+
+
+
+if __name__ == '__main__':
+    print(pregunta_12())

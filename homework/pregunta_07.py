@@ -25,3 +25,26 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+    rta = {}
+    rta2 = []
+
+    with open("files/input/data.csv") as file:
+        for line in file:
+            row = line.split()
+            letter = int(row[1])
+            
+            if letter not in rta:
+                rta[letter] = []
+            rta[letter] = rta.get(letter) + [row[0]]
+
+
+
+    for i in list(rta):
+        rta2.append((i, rta.get(i)))
+    rta2.sort()
+    return rta2
+
+
+
+if __name__ == '__main__':
+    print(pregunta_07())
